@@ -7,7 +7,7 @@
 
 
 
-## CottonBudYOLOv2 · Cotton Bud Detection/Localization (v2)
+## CottonBudYOLOv2 · Cotton Apical Bud Detection/Localization (v2)
 
 ---
 
