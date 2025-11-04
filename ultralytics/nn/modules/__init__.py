@@ -101,6 +101,20 @@ from .transformer import (
     TransformerEncoderLayer,
     TransformerLayer,
 )
+from .domain_modules import (
+    AdaptiveFeatureCalibration,
+    C3k2_DN,
+    DAConvAtt,
+    DAConvAttLite,
+    Detect_DR,
+    DomainAdaptiveBottleneck,
+    DomainNormalization,
+    DomainNormalizedConv,
+    FeatureMixer,
+    FrequencyDomainSeparator,
+    PAN_DA,
+    SPPF_MS,
+)
 
 __all__ = (
     "Conv",
@@ -179,4 +193,17 @@ __all__ = (
     "TorchVision",
     "Index",
     "A2C2f",
+    # Domain adaptation modules
+    "DomainNormalization",
+    "DomainNormalizedConv",
+    "DAConvAtt",
+    "DAConvAttLite",
+    "FeatureMixer",
+    "AdaptiveFeatureCalibration",
+    "FrequencyDomainSeparator",
+    "DomainAdaptiveBottleneck",
+    "C3k2_DN",
+    "SPPF_MS",
+    "PAN_DA",
+    "Detect_DR",
 )

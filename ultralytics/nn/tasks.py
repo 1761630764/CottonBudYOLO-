@@ -69,6 +69,17 @@ from ultralytics.nn.modules import (
     YOLOESegment,
     v10Detect,
 )
+# Import domain adaptation modules
+from ultralytics.nn.modules.domain_modules import (
+    C3k2_DN,
+    DAConvAtt,
+    DAConvAttLite,
+    Detect_DR,
+    PAN_DA,
+    SPPF_MS,
+    DomainNormalizedConv,
+    DomainNormalization,
+)
 from ultralytics.utils import DEFAULT_CFG_DICT, DEFAULT_CFG_KEYS, LOGGER, YAML, colorstr, emojis
 from ultralytics.utils.checks import check_requirements, check_suffix, check_yaml
 from ultralytics.utils.loss import (
@@ -1584,6 +1595,12 @@ def parse_model(d, ch, verbose=True):
             SCDown,
             C2fCIB,
             A2C2f,
+            # Domain adaptation modules
+            C3k2_DN,
+            SPPF_MS,
+            DAConvAtt,
+            DAConvAttLite,
+            DomainNormalizedConv,
         }
     )
     repeat_modules = frozenset(  # modules with 'repeat' arguments
@@ -1603,6 +1620,8 @@ def parse_model(d, ch, verbose=True):
             C2fCIB,
             C2PSA,
             A2C2f,
+            # Domain adaptation modules
+            C3k2_DN,
         }
     )
     for i, (f, n, m, args) in enumerate(d["backbone"] + d["head"]):  # from, number, module, args
@@ -1655,12 +1674,12 @@ def parse_model(d, ch, verbose=True):
         elif m is Concat:
             c2 = sum(ch[x] for x in f)
         elif m in frozenset(
-            {Detect, WorldDetect, YOLOEDetect, Segment, YOLOESegment, Pose, OBB, ImagePoolingAttn, v10Detect}
+            {Detect, WorldDetect, YOLOEDetect, Segment, YOLOESegment, Pose, OBB, ImagePoolingAttn, v10Detect, Detect_DR}
         ):
             args.append([ch[x] for x in f])
             if m is Segment or m is YOLOESegment:
                 args[2] = make_divisible(min(args[2], max_channels) * width, 8)
-            if m in {Detect, YOLOEDetect, Segment, YOLOESegment, Pose, OBB}:
+            if m in {Detect, YOLOEDetect, Segment, YOLOESegment, Pose, OBB, Detect_DR}:
                 m.legacy = legacy
         elif m is RTDETRDecoder:  # special case, channels arg must be passed in index 1
             args.insert(1, [ch[x] for x in f])
