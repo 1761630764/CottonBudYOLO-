@@ -5,7 +5,7 @@
 - [中文文档](README_zh.md)
 - [English](README_en.md)
 
-
+CottonBudYOLOv1 地址：https://github.com/1761630764/CottonBudYOLOv1
 
 ## CottonBudYOLOv2 · Cotton Apical Bud Detection/Localization (v2)
 
