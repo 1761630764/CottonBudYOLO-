@@ -1,4 +1,4 @@
-## CottonBudYOLOv2 · Cotton Bud Detection/Localization (v2)
+## CottonBudYOLO · Cotton Bud Detection/Localization
 
 ---
 
