@@ -1,4 +1,4 @@
-# CottonBudYOLOv2
+# CottonBudYOLO系列
 
 ## 请选择语言 / Choose your language:
 
