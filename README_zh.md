@@ -1,4 +1,4 @@
-## CottonBudYOLOv2 · 棉花顶芽检测/定位（v2）
+## CottonBudYOLO系列· 棉花顶芽检测/定位
 
 ---
 
